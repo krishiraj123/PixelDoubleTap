@@ -2,4 +2,10 @@
 set DIRNAME=%~dp0
 set CLASSPATH=%DIRNAME%\gradle\wrapper\gradle-wrapper.jar
 
-java -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
+if defined JAVA_HOME (
+  set JAVACMD=%JAVA_HOME%\bin\java.exe
+) else (
+  set JAVACMD=java
+)
+
+"%JAVACMD%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
